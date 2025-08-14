@@ -50,7 +50,7 @@ export default function HomePage() {
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
                   "聞ける相手"
                 </span>
-                を。
+                に。
               </h1>
               <p className="text-xl text-gray-200 mb-10 leading-relaxed">
                 月1回の60分相談＋無制限メッセージで、つまずいたらすぐ聞ける。
