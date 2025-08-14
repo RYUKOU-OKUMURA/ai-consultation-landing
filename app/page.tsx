@@ -10,7 +10,7 @@ export default function HomePage() {
       <section className="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden min-h-[600px]">
         <div className="absolute inset-0">
           <img
-            src="/images/ai-consultation-hero.png"
+            src="images/ai-consultation-hero.png"
             alt="AI consultation background"
             className="w-full h-full object-cover opacity-30"
           />
@@ -69,13 +69,6 @@ export default function HomePage() {
                   <MessageCircle className="mr-3 h-6 w-6" />
                   最初の相談内容を送る
                 </a>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg backdrop-blur-sm bg-transparent"
-              >
-                詳しく見る
               </Button>
             </div>
 
