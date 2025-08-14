@@ -61,11 +61,14 @@ export default function HomePage() {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button
+                asChild
                 size="lg"
                 className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 text-lg shadow-xl transform hover:scale-105 transition-all duration-200"
               >
-                <MessageCircle className="mr-3 h-6 w-6" />
-                最初の相談内容を送る
+                <a href="https://forms.gle/EQsVPQ6kQb4n5tFd6" target="_blank" rel="noopener noreferrer">
+                  <MessageCircle className="mr-3 h-6 w-6" />
+                  最初の相談内容を送る
+                </a>
               </Button>
               <Button
                 variant="outline"
@@ -292,9 +295,11 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <Button className="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white py-4 text-lg shadow-xl transform hover:scale-105 transition-all duration-200">
-                  <MessageCircle className="mr-3 h-6 w-6" />
-                  最初の相談内容を送る
+                <Button asChild className="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white py-4 text-lg shadow-xl transform hover:scale-105 transition-all duration-200">
+                  <a href="https://forms.gle/EQsVPQ6kQb4n5tFd6" target="_blank" rel="noopener noreferrer">
+                    <MessageCircle className="mr-3 h-6 w-6" />
+                    最初の相談内容を送る
+                  </a>
                 </Button>
               </CardContent>
             </Card>
@@ -536,11 +541,14 @@ export default function HomePage() {
           </h2>
           <p className="text-xl text-gray-300 mb-12 leading-relaxed">困ったらすぐ聞ける相手として伴走します。</p>
           <Button
+            asChild
             size="lg"
             className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-12 py-6 text-xl shadow-2xl transform hover:scale-105 transition-all duration-200"
           >
-            <MessageCircle className="mr-3 h-6 w-6" />
-            最初の相談内容を送る
+            <a href="https://forms.gle/EQsVPQ6kQb4n5tFd6" target="_blank" rel="noopener noreferrer">
+              <MessageCircle className="mr-3 h-6 w-6" />
+              最初の相談内容を送る
+            </a>
           </Button>
         </div>
       </section>
