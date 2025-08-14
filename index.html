@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI相談サービス - AIで迷ったら、聞ける相手を。</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'pulse': 'pulse 3s ease-in-out infinite',
+                        'bounce': 'bounce 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+        }
+        .hover-translate:hover {
+            transform: translateY(-8px);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-white">
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white overflow-hidden min-h-[600px]">
+        <div class="absolute inset-0">
+            <img src="/images/ai-consultation-hero.png" alt="AI consultation background" class="w-full h-full object-cover opacity-30">
+            <div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-blue-900/80 to-slate-900/90"></div>
+        </div>
+
+        <!-- Enhanced Background Pattern -->
+        <div class="absolute right-0 top-0 w-1/2 h-full">
+            <div class="grid grid-cols-6 gap-2 h-full opacity-20 p-8">
+                <div class="bg-gradient-to-br from-blue-400/30 to-cyan-400/20 aspect-square rounded-lg backdrop-blur-sm" style="animation: pulse 3s ease-in-out infinite; animation-delay: 0s;"></div>
+                <div class="bg-gradient-to-br from-blue-400/30 to-cyan-400/20 aspect-square rounded-lg backdrop-blur-sm" style="animation: pulse 3s ease-in-out infinite; animation-delay: 0.1s;"></div>
+                <div class="bg-gradient-to-br from-blue-400/30 to-cyan-400/20 aspect-square rounded-lg backdrop-blur-sm" style="animation: pulse 3s ease-in-out infinite; animation-delay: 0.2s;"></div>
+                <div class="bg-gradient-to-br from-blue-400/30 to-cyan-400/20 aspect-square rounded-lg backdrop-blur-sm" style="animation: pulse 3s ease-in-out infinite; animation-delay: 0.3s;"></div>
+                <div class="bg-gradient-to-br from-blue-400/30 to-cyan-400/20 aspect-square rounded-lg backdrop-blur-sm" style="animation: pulse 3s ease-in-out infinite; animation-delay: 0.4s;"></div>
+                <div class="bg-gradient-to-br from-blue-400/30 to-cyan-400/20 aspect-square rounded-lg backdrop-blur-sm" style="animation: pulse 3s ease-in-out infinite; animation-delay: 0.5s;"></div>
+                <!-- Repeat pattern for more grid items -->
+            </div>
+        </div>
+
+        <!-- Floating Elements -->
+        <div class="absolute top-20 right-20 w-16 h-16 bg-blue-500/20 rounded-full backdrop-blur-sm" style="animation: pulse 2s infinite;"></div>
+        <div class="absolute top-40 right-40 w-8 h-8 bg-cyan-400/30 rounded-full backdrop-blur-sm" style="animation: bounce 2s infinite;"></div>
+        <div class="absolute bottom-32 right-16 w-12 h-12 bg-orange-400/20 rounded-full backdrop-blur-sm" style="animation: pulse 2s infinite;"></div>
+
+        <div class="relative container mx-auto px-4 py-24 flex items-center min-h-[600px]">
+            <div class="max-w-2xl">
+                <div class="mb-8">
+                    <span class="bg-gradient-to-r from-orange-500 to-orange-600 text-white mb-6 px-4 py-2 font-medium shadow-lg text-2xl leading-6 rounded-full inline-block">
+                        🤖 AI顧問サービス
+                    </span>
+                    <h1 class="text-5xl md:text-6xl font-bold mb-8 leading-tight">
+                        AIで迷ったら、
+                        <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">
+                            "聞ける相手"
+                        </span>
+                        を。
+                    </h1>
+                    <p class="text-xl text-gray-200 mb-10 leading-relaxed">
+                        月1回の60分相談＋無制限メッセージで、つまずいたらすぐ聞ける。
+                        <br>
+                        <span class="text-blue-300 font-medium">むずかしい言葉は使いません。</span>
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-10 py-4 text-lg shadow-xl hover-scale transition-all duration-200 rounded-lg font-medium">
+                        💬 最初の相談内容を送る
+                    </button>
+                    <button class="border-2 border-white/30 text-white hover:bg-white/10 px-8 py-4 text-lg backdrop-blur-sm bg-transparent rounded-lg">
+                        詳しく見る
+                    </button>
+                </div>
+
+                <!-- Trust Indicators -->
+                <div class="mt-12 flex items-center space-x-8 text-sm text-gray-300">
+                    <div class="flex items-center">
+                        <span class="h-5 w-5 mr-2 text-green-400">🛡️</span>
+                        安全な相談環境
+                    </div>
+                    <div class="flex items-center">
+                        <span class="h-5 w-5 mr-2 text-blue-400">👥</span>
+                        3,800人が信頼
+                    </div>
+                    <div class="flex items-center">
+                        <span class="h-5 w-5 mr-2 text-orange-400">🎯</span>
+                        実践的なアドバイス
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3つのポイント -->
+    <section class="py-20 bg-gradient-to-br from-gray-50 to-blue-50/30 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <div class="grid grid-cols-12 gap-4 h-full p-8">
+                <!-- Background pattern elements -->
+                <div class="bg-blue-600 aspect-square rounded-full" style="animation: pulse 4s ease-in-out infinite; animation-delay: 0s;"></div>
+                <div class="bg-blue-600 aspect-square rounded-full" style="animation: pulse 4s ease-in-out infinite; animation-delay: 0.2s;"></div>
+                <!-- More pattern elements... -->
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-3xl font-bold text-center mb-16 flex items-center justify-center">
+                <span class="w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg mr-4 shadow-lg"></span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-blue-800">
+                    3つのポイント
+                </span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center p-8 border-0 shadow-xl bg-white/80 backdrop-blur-sm hover:shadow-2xl hover-translate transition-all duration-300 rounded-lg">
+                    <div class="pt-6">
+                        <div class="mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+                                <span class="text-white text-2xl">📅</span>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-slate-800">
+                            <span class="text-blue-600">POINT.1</span>
+                            <br>
+                            月1回面談
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            60分のオンライン面談で現状をヒアリング。あなたの業務に合う「この1ヶ月のAIレシピ」を確定します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center p-8 border-0 shadow-xl bg-white/80 backdrop-blur-sm hover:shadow-2xl hover-translate transition-all duration-300 rounded-lg">
+                    <div class="pt-6">
+                        <div class="mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+                                <span class="text-white text-2xl">💬</span>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-slate-800">
+                            <span class="text-green-600">POINT.2</span>
+                            <br>
+                            無制限相談
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            テキスト・音声でいつでも質問OK。つまずいた時にすぐ解決できるから、挫折しません。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center p-8 border-0 shadow-xl bg-white/80 backdrop-blur-sm hover:shadow-2xl hover-translate transition-all duration-300 rounded-lg">
+                    <div class="pt-6">
+                        <div class="mb-6">
+                            <div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mx-auto shadow-lg">
+                                <span class="text-white text-2xl">🛡️</span>
+                            </div>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-slate-800">
+                            <span class="text-purple-600">POINT.3</span>
+                            <br>
+                            安全重視
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed">
+                            機密配慮・ローカル保存を前提とした運用方法。「やっていい範囲」を明確化します。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3ステップ -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-white via-blue-50/20 to-orange-50/20"></div>
+        <div class="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-blue-100/30 to-transparent rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-orange-100/30 to-transparent rounded-full blur-3xl"></div>
+
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-3xl font-bold text-center mb-16 flex items-center justify-center">
+                <span class="w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg mr-4 shadow-lg"></span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-orange-800">
+                    かんたん3ステップ
+                </span>
+            </h2>
+
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center group">
+                    <div class="mb-8">
+                        <div class="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-4xl">📝</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-slate-800">
+                            <span class="text-blue-600">STEP.1</span>
+                            <br>
+                            申し込み
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed tracking-normal font-bold">
+                            申し込みフォームで困りごとを簡単に記入。
+                            <br>
+                            専門用語は不要です。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center group">
+                    <div class="mb-8">
+                        <div class="w-24 h-24 bg-gradient-to-br from-orange-500 to-orange-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-4xl">🔍</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-slate-800">
+                            <span class="text-orange-600">STEP.2</span>
+                            <br>
+                            面談
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed font-semibold">
+                            60分のオンライン面談で現状をヒアリング。
+                            <br>
+                            あなた専用の「AIレシピ」を作成します。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="text-center group">
+                    <div class="mb-8">
+                        <div class="w-24 h-24 bg-gradient-to-br from-green-500 to-green-600 rounded-3xl flex items-center justify-center mx-auto mb-6 shadow-xl group-hover:scale-110 transition-transform duration-300">
+                            <span class="text-4xl">💬</span>
+                        </div>
+                        <h3 class="font-bold text-xl mb-4 text-slate-800">
+                            <span class="text-green-600">STEP.3</span>
+                            <br>
+                            伴走開始
+                        </h3>
+                        <p class="text-gray-600 leading-relaxed font-bold">
+                            無制限メッセージでつまずきをその都度解決。
+                            <br>
+                            安心して続けられます。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 価格プラン -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 to-blue-50 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-10 left-10 w-32 h-32 bg-blue-200/30 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-10 right-10 w-40 h-40 bg-orange-200/30 rounded-full blur-2xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-3xl font-bold text-center mb-16 flex items-center justify-center">
+                <span class="w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg mr-4 shadow-lg"></span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-blue-800">
+                    シンプル料金
+                </span>
+            </h2>
+
+            <div class="max-w-lg mx-auto">
+                <div class="p-10 text-center border-0 shadow-2xl bg-white/90 backdrop-blur-sm relative overflow-hidden rounded-lg">
+                    <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 to-orange-500"></div>
+
+                    <div class="mb-8">
+                        <div class="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800 mb-3">
+                            月額 10,000円
+                        </div>
+                        <div class="text-gray-600">（＋税）／シンプル1プラン</div>
+                    </div>
+
+                    <div class="space-y-4 mb-10 text-left">
+                        <div class="flex items-start p-3 bg-blue-50 rounded-lg">
+                            <span class="text-blue-600 mr-3 font-bold">①</span>
+                            <span class="text-gray-700">オンライン面談60分×月1回</span>
+                        </div>
+                        <div class="flex items-start p-3 bg-green-50 rounded-lg">
+                            <span class="text-green-600 mr-3 font-bold">②</span>
+                            <span class="text-gray-700">無制限メッセージ相談（テキスト／音声OK）</span>
+                        </div>
+                    </div>
+
+                    <button class="w-full bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white py-4 text-lg shadow-xl hover-scale transition-all duration-200 rounded-lg">
+                        💬 最初の相談内容を送る
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- よくある相談テーマ -->
+    <section class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-white via-orange-50/10 to-blue-50/10"></div>
+
+        <div class="container mx-auto px-4 relative leading-7">
+            <h2 class="text-3xl font-bold text-center mb-16 flex items-center justify-center">
+                <span class="w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg mr-4 shadow-lg"></span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-orange-800">
+                    よくある相談テーマ
+                </span>
+            </h2>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="p-8 hover:shadow-xl transition-all duration-300 hover-translate border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div class="pt-0">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 shadow-lg">
+                                <div class="text-white text-xl">🎯</div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 text-slate-800 leading-6 tracking-normal text-base font-bold">AI選び</h3>
+                                <p class="text-gray-600 leading-relaxed">無料〜低額で始めるならどのAIが合う？</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 hover:shadow-xl transition-all duration-300 hover-translate border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div class="pt-0">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 rounded-xl bg-gradient-to-br from-orange-500 to-orange-600 shadow-lg">
+                                <div class="text-white text-xl">⚡</div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 text-slate-800 leading-6 tracking-normal text-base font-bold">業務テンプレート</h3>
+                                <p class="text-gray-600 leading-relaxed">予約返信・見積り・お知らせ文の型を作りたい</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 hover:shadow-xl transition-all duration-300 hover-translate border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div class="pt-0">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 rounded-xl bg-gradient-to-br from-green-500 to-green-600 shadow-lg">
+                                <div class="text-white text-xl">💬</div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 text-slate-800 leading-6 tracking-normal text-base font-bold">プロンプト作成</h3>
+                                <p class="text-gray-600 leading-relaxed">短いプロンプトでも再現性高く回す型</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 hover:shadow-xl transition-all duration-300 hover-translate border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div class="pt-0">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 rounded-xl bg-gradient-to-br from-purple-500 to-purple-600 shadow-lg">
+                                <div class="text-white text-xl">🛡️</div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 text-slate-800 leading-6 tracking-normal text-base font-bold">社内ルール</h3>
+                                <p class="text-gray-600 leading-relaxed">安全な使い方の最低限ルール策定</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 hover:shadow-xl transition-all duration-300 hover-translate border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div class="pt-0">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 rounded-xl bg-gradient-to-br from-pink-500 to-pink-600 shadow-lg">
+                                <div class="text-white text-xl">👥</div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 text-slate-800 leading-6 tracking-normal text-base font-bold">音声活用</h3>
+                                <p class="text-gray-600 leading-relaxed">音声→文章をスマホ中心でラクに</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-8 hover:shadow-xl transition-all duration-300 hover-translate border-0 shadow-lg bg-white/80 backdrop-blur-sm rounded-lg">
+                    <div class="pt-0">
+                        <div class="flex items-start space-x-4">
+                            <div class="p-3 rounded-xl bg-gradient-to-br from-cyan-500 to-cyan-600 shadow-lg">
+                                <div class="text-white text-xl">⚡</div>
+                            </div>
+                            <div>
+                                <h3 class="mb-3 text-slate-800 leading-6 tracking-normal text-base font-bold">文章作成</h3>
+                                <p class="text-gray-600 leading-relaxed">台本・記事の初稿を素早く出すコツ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 運営者プロフィール -->
+    <section class="py-20 bg-gradient-to-br from-blue-50 to-slate-50 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-blue-200/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-3xl font-bold text-center mb-16 flex items-center justify-center">
+                <span class="w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg mr-4 shadow-lg"></span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-blue-800">
+                    運営者プロフィール
+                </span>
+            </h2>
+
+            <div class="max-w-5xl mx-auto">
+                <div class="overflow-hidden border-0 shadow-2xl bg-white/90 backdrop-blur-sm rounded-lg">
+                    <div class="p-0">
+                        <div class="md:flex">
+                            <!-- Profile Image Section -->
+                            <div class="md:w-1/3 bg-gradient-to-br from-blue-100/50 to-slate-100/50 p-10 flex items-center justify-center relative">
+                                <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-orange-500/5"></div>
+                                <div class="text-center relative">
+                                    <div class="relative mb-6">
+                                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/%E3%83%95%E3%82%9A%E3%83%AD%E3%83%95%E3%82%A3%E3%83%BC%E3%83%AB%E5%86%99%E7%9C%9F.jpg-6iIDn1Ijc5VidxfO6b9xNO5requFVf.jpeg" alt="奥村龍晃のプロフィール写真" class="w-52 h-52 rounded-full mx-auto object-cover shadow-2xl border-4 border-white">
+                                    </div>
+                                    <h3 class="font-bold text-gray-800 mb-2 text-2xl">奥村 龍晃</h3>
+                                    <p class="text-gray-600 mb-4">（おくむら りゅうこう）</p>
+                                    <span class="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-2 shadow-lg tracking-wider text-lg leading-4 rounded-full inline-block">
+                                        AI×整体の実践者
+                                    </span>
+                                </div>
+                            </div>
+
+                            <!-- Detailed Profile Content -->
+                            <div class="md:w-2/3 p-10">
+                                <div class="mb-8">
+                                    <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                        <span class="w-2 h-8 bg-gradient-to-b from-blue-500 to-blue-600 rounded-full mr-3"></span>
+                                        プロフィール
+                                    </h4>
+                                    <p class="text-gray-700 leading-relaxed text-lg">
+                                        非エンジニア視点で、むずかしい設定に頼らず
+                                        <strong class="text-blue-600 font-bold">"今日からできるAI活用"</strong>へ翻訳。
+                                        個人事業・小規模店舗の現場に合わせて、続く運用を一緒に作ります。
+                                    </p>
+                                </div>
+
+                                <div class="mb-8">
+                                    <h4 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                                        <span class="w-2 h-8 bg-gradient-to-b from-orange-500 to-orange-600 rounded-full mr-3"></span>
+                                        実績
+                                    </h4>
+                                    <div class="space-y-4 font-normal">
+                                        <div class="flex items-start p-4 bg-gradient-to-r from-blue-50 to-blue-100/50 rounded-xl">
+                                            <span class="bg-blue-600 text-white mr-4 mt-1 px-3 py-1 rounded-full text-sm">認定</span>
+                                            <span class="text-gray-700 font-black text-lg">Genspark公式アンバサダー</span>
+                                        </div>
+
+                                        <div class="flex items-start p-4 bg-gradient-to-r from-orange-50 to-orange-100/50 rounded-xl">
+                                            <span class="bg-orange-600 text-white mr-4 mt-1 px-3 py-1 rounded-full text-sm">YouTube</span>
+                                            <div class="text-gray-700 text-base tracking-normal font-bold">
+                                                <div class="font-bold">「AI整体師チャンネル」運営</div>
+                                                <div class="text-gray-600 text-sm mt-1 font-medium">
+                                                    AIニュース＆使い方を配信／登録者 約3,800人（2025年8月時点）
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="flex items-start p-4 bg-gradient-to-r from-green-50 to-green-100/50 rounded-xl">
+                                            <span class="bg-green-600 text-white mr-4 mt-1 px-3 py-1 rounded-full text-sm">研修</span>
+                                            <div class="text-gray-700">
+                                                <div class="font-bold">整体院・整骨院向け 生成AI研修・顧問</div>
+                                                <div class="text-gray-600 text-sm mt-1">
+                                                    安全運用（情報の取り扱い／ルール設計）と現場ワークフロー構築を実施
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="bg-gradient-to-r from-blue-50 to-orange-50 p-6 rounded-xl border-l-4 border-blue-500">
+                                    <p class="text-gray-700 italic leading-relaxed">
+                                        「現役の整体師として、エンジニアではない立場から、高機能よりも
+                                        <strong class="text-blue-600 font-bold">あなたの仕事に効く最小セット</strong>を一緒に選び、
+                                        続けられる形に整えます。」
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- おわりに -->
+    <section class="py-20 bg-gradient-to-br from-slate-50 to-gray-50 relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="absolute top-0 left-1/4 w-64 h-64 bg-blue-200/20 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-0 right-1/4 w-64 h-64 bg-orange-200/20 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-3xl font-bold text-center mb-16 flex items-center justify-center">
+                <span class="w-6 h-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg mr-4 shadow-lg"></span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-slate-800 to-blue-800">おわりに</span>
+            </h2>
+
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="p-10 border-0 shadow-xl bg-white/80 backdrop-blur-sm rounded-lg">
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        AI相談サービスは、あなたの仕事に最適なAI活用をサポートします。エンジニアではない立場から、安全で効果的なAI活用を提案します。お気軽に相談ください。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white text-center relative overflow-hidden">
+        <div class="absolute inset-0">
+            <div class="grid grid-cols-8 gap-4 h-full opacity-10 p-8">
+                <div class="bg-gradient-to-br from-blue-400/30 to-orange-400/20 aspect-square rounded-lg" style="animation: pulse 4s ease-in-out infinite; animation-delay: 0s;"></div>
+                <div class="bg-gradient-to-br from-blue-400/30 to-orange-400/20 aspect-square rounded-lg" style="animation: pulse 4s ease-in-out infinite; animation-delay: 0.2s;"></div>
+                <!-- More pattern elements... -->
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 relative">
+            <h2 class="text-4xl font-bold mb-6">
+                迷ったら、まずは
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-yellow-400">1ヶ月</span>
+                。
+            </h2>
+            <p class="text-xl text-gray-300 mb-12 leading-relaxed">困ったらすぐ聞ける相手として伴走します。</p>
+            <button class="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-12 py-6 text-xl shadow-2xl hover-scale transition-all duration-200 rounded-lg">
+                💬 最初の相談内容を送る
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-8">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-sm text-gray-400">Copyright © AI相談サービス All Rights Reserved</p>
+        </div>
+    </footer>
+</body>
+</html>
